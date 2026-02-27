@@ -14,7 +14,7 @@ export default function StepTrack({ pin, affiliateLink, product, onNew, onDashbo
       {/* Success Banner */}
       <div style={{ background: 'linear-gradient(135deg, rgba(230,0,35,0.15), rgba(80,0,120,0.15))', border: '1px solid rgba(230,0,35,0.3)', borderRadius: 16, padding: '28px 24px', textAlign: 'center' }}>
         <div style={{ fontSize: 44, marginBottom: 12 }}>🎉</div>
-        <h3 style={{ margin: '0 0 8px', fontSize: 20, color: '#f0e8ff' }}>Pin Scheduled!</h3>
+        <h3 style={{ margin: '0 0 8px', fontSize: 20, color: '#f0e8ff' }}>Pin Created!</h3>
         <p style={{ margin: 0, color: '#9988bb', fontSize: 14 }}>
           Pinned to <strong style={{ color: '#ff9999' }}>{pin?.boardName}</strong> · Affiliate tracking active
         </p>
@@ -28,7 +28,7 @@ export default function StepTrack({ pin, affiliateLink, product, onNew, onDashbo
       {/* Live Stats */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
         {[
-          { icon: '👁️', label: 'Impressions', value: '—', sub: 'Goes live soon' },
+          { icon: '👁️', label: 'Impressions', value: '—', sub: 'Data updates after publish' },
           { icon: '🖱️', label: 'Clicks', value: '0', sub: 'Tracking active' },
           { icon: '💰', label: 'Earnings', value: '$0.00', sub: '~4% commission' },
         ].map(s => (

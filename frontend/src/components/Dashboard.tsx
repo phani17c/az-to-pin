@@ -20,7 +20,7 @@ export default function Dashboard({ onBack }: Props) {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 32 }}>
         <div>
           <h1 style={{ margin: '0 0 4px', fontSize: 28, fontWeight: 700, color: '#f0e8ff' }}>📊 Dashboard</h1>
-          <p style={{ margin: 0, fontSize: 13, color: '#554466' }}>Affiliate performance & scheduled pins</p>
+          <p style={{ margin: 0, fontSize: 13, color: '#554466' }}>Affiliate performance & published pins</p>
         </div>
         <button onClick={onBack} style={secondaryBtn}>← Back to Tool</button>
       </div>
@@ -99,12 +99,12 @@ export default function Dashboard({ onBack }: Props) {
       {tab === 'pins' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {pins.length === 0 ? (
-            <div style={{ ...card, textAlign: 'center', padding: '40px', color: '#554466' }}>No pins scheduled yet.</div>
+            <div style={{ ...card, textAlign: 'center', padding: '40px', color: '#554466' }}>No pins created yet.</div>
           ) : pins.map((p: any) => (
             <div key={p.id} style={{ ...card, display: 'flex', gap: 12, alignItems: 'flex-start' }}>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: 13, color: '#f0e8ff', marginBottom: 4 }}>{p.title}</div>
-                <div style={{ fontSize: 12, color: '#554466' }}>Board: {p.boardName} · Scheduled: {new Date(p.scheduledAt).toLocaleString()}</div>
+                <div style={{ fontSize: 12, color: '#554466' }}>Board: {p.boardName} · Publish time: {new Date(p.scheduledAt).toLocaleString()}</div>
                 <div style={{ fontSize: 11, color: '#443355', marginTop: 3, fontFamily: 'monospace' }}>ID: {p.pinId || p.id}</div>
               </div>
               <span style={{ fontSize: 11, padding: '3px 10px', borderRadius: 12, whiteSpace: 'nowrap', background: p.status === 'published' ? 'rgba(0,200,100,0.15)' : 'rgba(230,150,0,0.15)', color: p.status === 'published' ? '#00cc66' : '#ffaa00' }}>

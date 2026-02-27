@@ -23,7 +23,7 @@ export default function StepSchedule({ product, content, design, onSchedule, onB
     })
   }, [])
 
-  // Suggest optimal time
+  // Suggest an initial publish time
   useEffect(() => {
     const now = new Date()
     now.setDate(now.getDate() + ((6 - now.getDay() + 7) % 7 || 7)) // Next Saturday
@@ -59,7 +59,7 @@ export default function StepSchedule({ product, content, design, onSchedule, onB
           </select>
         </div>
         <div style={card}>
-          <div style={fieldLabel}>Schedule Date & Time</div>
+          <div style={fieldLabel}>Publish Date & Time</div>
           <input type="datetime-local" value={scheduledAt} onChange={e => setScheduledAt(e.target.value)} style={input} />
           <div style={{ fontSize: 11, color: '#ff9999', marginTop: 4 }}>
             ⭐ AI suggests: {content.bestTimeToPost}

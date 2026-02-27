@@ -65,12 +65,12 @@ export default function App() {
   }
 
   const handleSchedule = async (params: { boardId: string; boardName: string; scheduledAt: string; accessToken: string }) => {
-    await load('📌 Generating affiliate link & scheduling pin...', async () => {
+    await load('📌 Generating affiliate link & preparing pin publish...', async () => {
       // Generate affiliate link
       const link = await affiliateApi.generateLink(product.asin, affiliateTag)
       setAffiliateLink(link)
 
-      // Schedule pin
+      // Publish pin request
       const pin = await pinterestApi.schedule({
         ...params,
         title: content.title,
@@ -80,7 +80,7 @@ export default function App() {
       })
       setScheduledPin(pin)
       setStep('track')
-      toast.success('🎉 Pin scheduled to Pinterest!')
+      toast.success('🎉 Pin sent to Pinterest!')
     })
   }
 
@@ -118,7 +118,7 @@ export default function App() {
             <span style={{ fontSize: 28 }}>📌</span>
             <div style={{ marginLeft: 16 }}>
               <h1 style={styles.title}>PinIt Pro</h1>
-              <p style={styles.subtitle}>Amazon → Pinterest Automation</p>
+              <p style={styles.subtitle}>Amazon → Pinterest Assistant</p>
             </div>
           </div>
           <button onClick={() => setShowDashboard(true)} style={styles.dashBtn}>
